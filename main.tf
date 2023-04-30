@@ -1,9 +1,9 @@
 terraform {
   backend "azurerm" {
-    resource_group_name  = "tamopstfstates"
-    storage_account_name = "tampostf"
-    container_name       = "tfstatedevops"
-    key                  = "tfstatedevops.tfstate"
+    resource_group_name  = "test"
+    storage_account_name = "test3455"
+    container_name       = "testy"
+    key                  = "testy.tfstate"
   }
 }
 
@@ -17,8 +17,8 @@ provider "azurerm" {
 data "azurerm_client_config" "current" {}
 
 #Create Resource Group
-resource "azurerm_resource_group" "tamops" {
-  name     = "tamops"
+resource "azurerm_resource_group" "tamops1" {
+  name     = "tamops54"
   location = "uksouth"
 }
 
@@ -27,7 +27,7 @@ resource "azurerm_virtual_network" "vnet" {
   name                = "tamops-vnet"
   address_space       = ["192.168.0.0/16"]
   location            = "uksouth"
-  resource_group_name = azurerm_resource_group.tamops.name
+  resource_group_name = azurerm_resource_group.tamops1.name
 }
 
 # Create Subnet
